@@ -6,10 +6,13 @@
 
 The following functions must be implemented for subtypes:
 
-* `BAT.proposal_logpdf!`
 * `BAT.proposal_rand!`
 * `BAT.nparams`, returning the number of parameters (i.e. dimensionality).
 * `Base.issymmetric`, indicating whether p(a -> b) == p(b -> a) holds true.
+
+If the proposal is not symmetric, then one has to implement
+
+* `BAT.proposal_logpdf!`
 """
 abstract type AbstractProposalDist end
 export AbstractProposalDist
@@ -25,7 +28,7 @@ export AbstractProposalDist
 
 log(PDF) value of `pdist` for transitioning from old to new parameter values
 for multiple parameter sets.
-    
+
 end
 
 Input:
